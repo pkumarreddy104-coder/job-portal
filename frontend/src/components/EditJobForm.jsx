@@ -23,8 +23,8 @@ if (Number(salary) <= 0) {
 
         const response = await fetch(
     isAdmin
-        ? `http://localhost:4000/admin/jobs/${job._id}`
-        : `http://localhost:4000/jobs/${job._id}`,
+        ? `https://job-portal-ex9x.onrender.com/admin/jobs/${job._id}`
+        : `https://job-portal-ex9x.onrender.com/jobs/${job._id}`,
     {
         method: isAdmin ? "PATCH" : "PUT",
         headers: {

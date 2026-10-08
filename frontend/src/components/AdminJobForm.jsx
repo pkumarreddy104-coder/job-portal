@@ -16,7 +16,7 @@ function AdminJobForm({ onJobCreated }) {
         const token = localStorage.getItem("token");
        
 
-        const response = await fetch("http://localhost:4000/admin/jobs", {
+        const response = await fetch("https://job-portal-ex9x.onrender.com/admin/jobs", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

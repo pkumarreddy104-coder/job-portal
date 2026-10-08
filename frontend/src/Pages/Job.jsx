@@ -25,7 +25,7 @@ function Job() {
         try {
            
 
-            const response = await fetch(`http://localhost:4000/jobs?search=${encodeURIComponent(searchValue)}&location=${encodeURIComponent(locationValue)}&minSalary=${encodeURIComponent(minSalaryValue)}&maxSalary=${encodeURIComponent(maxSalaryValue)}&sortSalary=${encodeURIComponent(sortSalaryValue)}&page=${pageValue}`);
+            const response = await fetch(`https://job-portal-ex9x.onrender.com/jobs?search=${encodeURIComponent(searchValue)}&location=${encodeURIComponent(locationValue)}&minSalary=${encodeURIComponent(minSalaryValue)}&maxSalary=${encodeURIComponent(maxSalaryValue)}&sortSalary=${encodeURIComponent(sortSalaryValue)}&page=${pageValue}`);
 
             const data = await response.json();
 

@@ -9,7 +9,7 @@ const [error, setError] = useState("");
         setError("");
 
         try {
-            const response = await fetch("http://localhost:4000/profile", {
+            const response = await fetch("https://job-portal-ex9x.onrender.com/profile", {
                 headers: {
                     Authorization: token
                 }

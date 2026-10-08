@@ -8,7 +8,7 @@ function JobDetails() {
   const [applied, setApplied] = useState(false);
   useEffect(() => {
     const getjob = async () => {
-      const response = await fetch(`http://localhost:4000/jobs/${id}`);
+      const response = await fetch(`https://job-portal-ex9x.onrender.com/jobs/${id}`);
       const data = await response.json();
       setJob(data);
     }
@@ -19,7 +19,7 @@ function JobDetails() {
         return;
       }
       const response = await fetch(
-        `http://localhost:4000/applications/check/${id}`,
+        `https://job-portal-ex9x.onrender.com/applications/check/${id}`,
         {
           headers: {
             Authorization: token
@@ -52,7 +52,7 @@ function JobDetails() {
   return;
 }
 
-    const response = await fetch("http://localhost:4000/applications", {
+    const response = await fetch("https://job-portal-ex9x.onrender.com/applications", {
       method: "POST",
       headers: {
         Authorization: token

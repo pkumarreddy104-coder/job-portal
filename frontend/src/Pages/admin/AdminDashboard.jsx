@@ -15,7 +15,7 @@ function AdminDashboard() {
         const getUsers = async () => {
             const token = localStorage.getItem("token");
 
-            const response = await fetch("http://localhost:4000/admin/users", {
+            const response = await fetch("https://job-portal-ex9x.onrender.com/admin/users", {
                 headers: {
                     Authorization: token
                 }
@@ -37,7 +37,7 @@ function AdminDashboard() {
         const getJobs = async () => {
             const token = localStorage.getItem("token");
 
-            const response = await fetch("http://localhost:4000/admin/jobs", {
+            const response = await fetch("https://job-portal-ex9x.onrender.com/admin/jobs", {
                 headers: {
                     Authorization: token
                 }
@@ -67,7 +67,7 @@ function AdminDashboard() {
         const token = localStorage.getItem("token");
 
         const response = await fetch(
-            `http://localhost:4000/admin/users/${id}`,
+            `https://job-portal-ex9x.onrender.com/admin/users/${id}`,
             {
                 method: "DELETE",
                 headers: {
@@ -93,7 +93,7 @@ function AdminDashboard() {
         const token = localStorage.getItem("token");
 
         const response = await fetch(
-            `http://localhost:4000/admin/jobs/${id}`,
+            `https://job-portal-ex9x.onrender.com/admin/jobs/${id}`,
             {
                 method: "DELETE",
                 headers: {
@@ -119,7 +119,7 @@ function AdminDashboard() {
         const token = localStorage.getItem("token");
 
         const response = await fetch(
-            `http://localhost:4000/admin/users/${id}/role`,
+            `https://job-portal-ex9x.onrender.com/admin/users/${id}/role`,
             {
                 method: "PATCH",
                 headers: {

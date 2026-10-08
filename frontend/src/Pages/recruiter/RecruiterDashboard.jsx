@@ -21,7 +21,7 @@ useEffect(() => {
         const getJobs = async () => {
             const token = localStorage.getItem("token");
 
-            const response = await fetch("http://localhost:4000/jobs/my", {
+            const response = await fetch("https://job-portal-ex9x.onrender.com/jobs/my", {
                 headers: {
                     Authorization: token
                 }
@@ -46,7 +46,7 @@ useEffect(() => {
             const token = localStorage.getItem("token");
 
             const response = await fetch(
-                "http://localhost:4000/applications/recruiter",
+                "https://job-portal-ex9x.onrender.com/applications/recruiter",
                 {
                     headers: {
                         Authorization: token
@@ -71,7 +71,7 @@ useEffect(() => {
     const handleDelete = async (id) => {
         const token = localStorage.getItem("token");
 
-        const response = await fetch(`http://localhost:4000/jobs/${id}`, {
+        const response = await fetch(`https://job-portal-ex9x.onrender.com/jobs/${id}`, {
             method: "DELETE",
             headers: {
                 Authorization: token
@@ -92,7 +92,7 @@ useEffect(() => {
         const token = localStorage.getItem("token");
 
         const response = await fetch(
-            `http://localhost:4000/applications/${applicationId}/status`,
+            `https://job-portal-ex9x.onrender.com/applications/${applicationId}/status`,
             {
                 method: "PATCH",
                 headers: {
@@ -124,7 +124,7 @@ useEffect(() => {
         const token = localStorage.getItem("token");
 
         const response = await fetch(
-            `http://localhost:4000/applications/${applicationId}/resume`,
+            `https://job-portal-ex9x.onrender.com/applications/${applicationId}/resume`,
             {
                 headers: {
                     Authorization: token

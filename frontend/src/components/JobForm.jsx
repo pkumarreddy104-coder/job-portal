@@ -9,7 +9,7 @@ function JobForm({ onJobCreated }) {
   const handleCreateJob = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
-    const response = await fetch("http://localhost:4000/jobs", {
+    const response = await fetch("https://job-portal-ex9x.onrender.com/jobs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

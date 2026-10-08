@@ -12,7 +12,7 @@ function LoginForm(){
     return;
 }
         setLoading(true);
-        const response = await fetch("http://localhost:4000/login",{
+        const response = await fetch("https://job-portal-ex9x.onrender.com/login",{
                 method:"POST",
             headers:{
                 "Content-Type":"application/json",

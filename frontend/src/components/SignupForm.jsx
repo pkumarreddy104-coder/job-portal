@@ -16,7 +16,7 @@ if (password.length < 6) {
     return;
 }
     setLoading(true);
-    const response = await fetch("http://localhost:4000/register",{
+    const response = await fetch("https://job-portal-ex9x.onrender.com/register",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"

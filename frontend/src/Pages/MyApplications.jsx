@@ -6,7 +6,7 @@ const viewResume = async (applicationId) => {
   const token = localStorage.getItem("token");
 
   const response = await fetch(
-    `http://localhost:4000/applications/${applicationId}/resume`,
+    `https://job-portal-ex9x.onrender.com/applications/${applicationId}/resume`,
     {
       headers: {
         Authorization: token
@@ -25,7 +25,7 @@ const viewResume = async (applicationId) => {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:4000/applications/my",
+        "https://job-portal-ex9x.onrender.com/applications/my",
         {
           headers: {
             Authorization: token
