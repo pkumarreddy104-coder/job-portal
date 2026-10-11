@@ -52,7 +52,7 @@ function JobDetails() {
   return;
 }
 
-    const response = await fetch("https://job-portal-ex9x.onrender.com/applications", {
+    const response = await fetch("http://localhost:4000/applications", {
       method: "POST",
       headers: {
         Authorization: token

@@ -1,21 +1,19 @@
 const express = require('express');
+const cloudinary = require("cloudinary").v2;
 const Application = require('../models/Application');
 const auth = require("../auth");
 const multer = require("multer");
 const Job = require("../models/job");
 const router = express.Router();
-const path = require("path");
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, "uploads/");
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + "-" + file.originalname);
-    }
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
+
 const upload = multer({
-    storage,
+    storage: multer.memoryStorage(),
     limits: { fileSize: 5 * 1024 * 1024 },
     fileFilter: function (req, file, cb) {
         if (file.mimetype === "application/pdf") {
@@ -64,11 +62,30 @@ router.post("/", auth, (req, res, next) => {
                 message: "You have already applied for this job"
             });
         }
-        const application = await Application.create({
-            job,
-            applicant: req.user.id,
-            resume: req.file.path
-        })
+        const uploadResult = await new Promise((resolve, reject) => {
+    const stream = cloudinary.uploader.upload_stream(
+        {
+            folder: "job-portal/resumes",
+            resource_type: "raw",
+            public_id: `${Date.now()}-${req.file.originalname}`
+        },
+        (error, result) => {
+            if (error) {
+                reject(error);
+            } else {
+                resolve(result);
+            }
+        }
+    );
+
+    stream.end(req.file.buffer);
+});
+
+const application = await Application.create({
+    job,
+    applicant: req.user.id,
+    resume: uploadResult.secure_url
+});
         res.status(201).json(application);
     } catch (error) {
         console.log(error);
@@ -214,7 +231,7 @@ router.get("/:id/resume", auth, async (req, res) => {
             });
         }
 
-        res.sendFile(path.resolve(application.resume));
+       return res.redirect(application.resume);
 
     } catch (error) {
         console.log(error);
