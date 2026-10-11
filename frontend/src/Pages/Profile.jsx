@@ -67,6 +67,14 @@ const [error, setError] = useState("");
     <span className="font-semibold">Role:</span>{" "}
     <span className="text-blue-600 font-semibold">{user.role}</span>
 </p>
+<div className="mt-6">
+    <a
+        href="/applications"
+        className="inline-block bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700 transition"
+    >
+        My Applications
+    </a>
+</div>
     </div>
 )
 }
